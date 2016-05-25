@@ -35,8 +35,7 @@ BoxLayout:
 
             Button:
                 text: 'Save Item'
-                on_release: app.press_save()
-                #on_release: app.press_save(textfrominputgoeshere.text,textfrominputgoeshere.text)
+                on_release: app.save_item(Item_Name_Catch.text, Item_Description_Catch.text, Item_Price_Catch.text)
 
             Button:
                 text: 'Cancel'
@@ -49,30 +48,40 @@ BoxLayout:
 
     BoxLayout:
         orientation: 'vertical'
-        Button:
-            id: BUTTON_FUNCTION_HERE
-            text: 'List Items'
-            on_press: app.show_all_items()
+        BoxLayout:
+            orientation: 'horizontal'
+            BoxLayout:
+                orientation: 'vertical'
+                Button:
+                    id: BUTTON_FUNCTION_HERE
+                    text: 'List Items'
+                    on_press: app.check()
 
-        Button:
-            id: BUTTON_FUNCTION_HERE
-            text: 'Hire Items'
-            #on_press: app.convert_button()
+                Button:
+                    id: BUTTON_FUNCTION_HERE
+                    text: 'Hire Items'
+                    #on_press: app.convert_button()
 
-        Button:
-            id: BUTTON_FUNCTION_HERE
-            text: 'Return Items'
-            #on_press: app.convert_button()
+                Button:
+                    id: BUTTON_FUNCTION_HERE
+                    text: 'Return Items'
+                    #on_press: app.convert_button()
 
-        Button:
-            id: BUTTON_FUNCTION_HERE
-            text: 'Confirm'
-            #on_press: app.convert_button()
+                Button:
+                    id: BUTTON_FUNCTION_HERE
+                    text: 'Confirm'
+                    #on_press: app.convert_button()
 
-        Button:
-            id: addButton
-            text: 'Add New Entry'
-            on_release: app.press_add()
+                Button:
+                    id: addButton
+                    text: 'Add New Entry'
+                    on_release: app.press_add()
+
+            GridLayout:
+                # this layout is populated with (button) widgets in app code
+                id: entriesBox
+                cols: 3
+                orientation: 'vertical'
 
 
         Label:
@@ -80,4 +89,3 @@ BoxLayout:
             font_size: 20
             text: 'Choose an action on the left menu and choose items on the right'
             color: (1, 1, 0, 1)
-
