@@ -1,0 +1,82 @@
+BoxLayout:
+    id: mainBox
+    Popup:
+        id: popup
+        title: "Add Item"
+        on_parent:
+            if self.parent == mainBox: self.parent.remove_widget(self)
+
+        BoxLayout:
+            orientation: 'vertical'
+            Label:
+                text: 'Item Name:'
+
+            TextInput:
+                id: Item_Name_Catch
+                multiline: False
+                write_tab: False
+
+            Label:
+                text: 'Description:'
+
+            TextInput:
+                id: Item_Description_Catch
+                multiline: False
+                write_tab: False
+
+            Label:
+                text: 'Price Per Day:'
+
+            TextInput:
+                id: Item_Price_Catch
+                multiline: False
+                write_tab: False
+
+            Button:
+                text: 'Save Item'
+                on_release: app.press_save()
+                #on_release: app.press_save(textfrominputgoeshere.text,textfrominputgoeshere.text)
+
+            Button:
+                text: 'Cancel'
+                on_release: app.press_cancel()
+
+            Label:
+                text: 'Enter Details For A New Item'
+
+
+
+    BoxLayout:
+        orientation: 'vertical'
+        Button:
+            id: BUTTON_FUNCTION_HERE
+            text: 'List Items'
+            #on_press: app.convert_button()
+
+        Button:
+            id: BUTTON_FUNCTION_HERE
+            text: 'Hire Items'
+            #on_press: app.convert_button()
+
+        Button:
+            id: BUTTON_FUNCTION_HERE
+            text: 'Return Items'
+            #on_press: app.convert_button()
+
+        Button:
+            id: BUTTON_FUNCTION_HERE
+            text: 'Confirm'
+            #on_press: app.convert_button()
+
+        Button:
+            id: addButton
+            text: 'Add New Entry'
+            on_release: app.press_add()
+
+
+        Label:
+            id: BUTTON_FUNCTION_HERE
+            font_size: 20
+            text: 'Choose an action on the left menu and choose items on the right'
+            color: (1, 1, 0, 1)
+
