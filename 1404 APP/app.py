@@ -1,7 +1,6 @@
 from kivy.app import App
 from kivy.lang import Builder
 from kivy.uix.button import Button
-from kivy.properties import StringProperty
 from ItemList import Item_vault
 from Item import Item_info
 
@@ -35,13 +34,35 @@ class ItemsForHireApp(App):
         self.root.ids.popup.open()
 
     def press_cancel(self):
+        self.clear_text_feilds()
         self.root.ids.popup.dismiss()
 
-    def press_save(self):
-        self.root.ids.popup.dismiss()
 
+    def testchange(self):
+        for testitems in self.bagOfHolding.item_list:
+            print(testitems.in_out[0:])
+
+    def clear_grid(self):
+        self.root.ids.entriesBox.clear_widgets()
+
+    def hire_items(self):
+        self.clear_grid()
+        for printing_items in self.bagOfHolding.item_list:
+            if printing_items.in_out == "in":
+                item_button = Button(text=printing_items.name)
+                item_button.background_color = (0,1,0,2)
+                self.root.ids.entriesBox.add_widget(item_button)
+
+    def return_items(self):
+        self.clear_grid()
+        for printing_items in self.bagOfHolding.item_list:
+            if printing_items.in_out == "out":
+                item_button = Button(text=printing_items.name)
+                item_button.background_color = (1,0,0,2)
+                self.root.ids.entriesBox.add_widget(item_button)
 
     def button_creator(self):
+        self.clear_grid()
         for printing_items in self.bagOfHolding.item_list:
             if printing_items.in_out == "out":
                 item_button = Button(text=printing_items.name)
@@ -58,11 +79,14 @@ class ItemsForHireApp(App):
         item_button = Button(text=Item_Name_Catch)
         item_button.background_color = (0,1,0,2)
         self.root.ids.entriesBox.add_widget(item_button)
+        self.clear_text_feilds()
         self.root.ids.popup.dismiss()
 
-    def check(self):
-        for testitem in self.bagOfHolding.item_list:
-            print(testitem)
+    def clear_text_feilds(self):
+        self.root.ids.Item_Name_Catch.text = " "
+        self.root.ids.Item_Description_Catch.text = " "
+        self.root.ids.Item_Price_Catch.text = " "
+
 
 
 

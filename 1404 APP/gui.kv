@@ -55,17 +55,17 @@ BoxLayout:
                 Button:
                     id: BUTTON_FUNCTION_HERE
                     text: 'List Items'
-                    on_press: app.check()
+                    on_press: app.button_creator()
 
                 Button:
                     id: BUTTON_FUNCTION_HERE
                     text: 'Hire Items'
-                    #on_press: app.convert_button()
+                    on_press: app.hire_items()
 
                 Button:
                     id: BUTTON_FUNCTION_HERE
                     text: 'Return Items'
-                    #on_press: app.convert_button()
+                    on_press: app.return_items()
 
                 Button:
                     id: BUTTON_FUNCTION_HERE
@@ -82,6 +82,7 @@ BoxLayout:
                 id: entriesBox
                 cols: 3
                 orientation: 'vertical'
+                #on_release: app.press_add()
 
 
         Label:
