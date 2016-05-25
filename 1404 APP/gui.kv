@@ -1,5 +1,6 @@
 BoxLayout:
     id: mainBox
+    #app.loading_items()
     Popup:
         id: popup
         title: "Add Item"
@@ -51,7 +52,7 @@ BoxLayout:
         Button:
             id: BUTTON_FUNCTION_HERE
             text: 'List Items'
-            #on_press: app.convert_button()
+            on_press: app.show_all_items()
 
         Button:
             id: BUTTON_FUNCTION_HERE
