@@ -3,6 +3,7 @@ from kivy.lang import Builder
 from kivy.uix.button import Button
 from ItemList import Item_vault
 from Item import Item_info
+#from kivy.properties import StringProperty
 
 class ItemsForHireApp(App):
 
@@ -37,27 +38,49 @@ class ItemsForHireApp(App):
         self.clear_text_feilds()
         self.root.ids.popup.dismiss()
 
+    def in_out_press(self):
+        pass
 
-    def testchange(self):
-        for testitems in self.bagOfHolding.item_list:
-            print(testitems.in_out[0:])
+
+    #def button_name_finder(self):
+    #   for selected_button in self.bagOfHolding.item_list:
+    #        temp_button = Button(text=selected_button.name)
+    #        temp_button.bind(on_release=self.button_pressed)
+
+    def in_changer(self, buttons_name):
+        name = buttons_name.text
+        for testitem in self.bagOfHolding.item_list:
+            if testitem.name == name:
+                testitem.in_out = "out"
+                print(testitem.name, testitem.in_out)
+
+    def out_changer(self, buttons_name):
+        name = buttons_name.text
+        for testitem in self.bagOfHolding.item_list:
+            if testitem.name == name:
+                testitem.in_out = "in"
+                print(testitem.name, testitem.in_out)
+
 
     def clear_grid(self):
         self.root.ids.entriesBox.clear_widgets()
 
-    def hire_items(self):
+    def list_hired_items(self):
         self.clear_grid()
         for printing_items in self.bagOfHolding.item_list:
             if printing_items.in_out == "in":
                 item_button = Button(text=printing_items.name)
+                item_button.bind(on_release=self.in_changer)
                 item_button.background_color = (0,1,0,2)
                 self.root.ids.entriesBox.add_widget(item_button)
 
-    def return_items(self):
+
+    def list_returned_items(self):
         self.clear_grid()
         for printing_items in self.bagOfHolding.item_list:
             if printing_items.in_out == "out":
                 item_button = Button(text=printing_items.name)
+                item_button.bind(on_release=self.out_changer)
                 item_button.background_color = (1,0,0,2)
                 self.root.ids.entriesBox.add_widget(item_button)
 
