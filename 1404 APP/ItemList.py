@@ -12,3 +12,4 @@ class Item_vault:
             item_match = line.strip().replace(" ", "").split(",")
             self.item_list.append(Item_info(item_match[0], item_match[1], item_match[2], item_match[3]))
 
+

@@ -77,6 +77,11 @@ BoxLayout:
                     text: 'Add New Entry'
                     on_release: app.press_add()
 
+                Button:
+                    id: BUTTON_FUNCTION_HERE
+                    text: 'Save and Exit'
+                    on_press: app.exit_program()
+
             GridLayout:
                 # this layout is populated with (button) widgets in app code
                 id: entriesBox
@@ -88,5 +93,5 @@ BoxLayout:
         Label:
             id: BUTTON_FUNCTION_HERE
             font_size: 20
-            text: 'Choose an action on the left menu and choose items on the right'
+            text: app.status_text
             color: (1, 1, 0, 1)
