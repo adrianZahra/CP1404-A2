@@ -60,12 +60,12 @@ BoxLayout:
                 Button:
                     id: BUTTON_FUNCTION_HERE
                     text: 'Hire Items'
-                    on_press: app.list_hired_items()
+                    on_press: app.list_in_stock()
 
                 Button:
                     id: BUTTON_FUNCTION_HERE
                     text: 'Return Items'
-                    on_press: app.list_returned_items()
+                    on_press: app.list_out_stock()
 
                 Button:
                     id: BUTTON_FUNCTION_HERE
@@ -83,11 +83,10 @@ BoxLayout:
                     on_press: app.exit_program()
 
             GridLayout:
-                # this layout is populated with (button) widgets in app code
                 id: entriesBox
                 cols: 3
                 orientation: 'vertical'
-                #on_release: app.press_add()
+
 
 
         Label:
